@@ -1,14 +1,27 @@
-const http = require('http');
+import express from 'express';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-const hostname = '127.0.0.1';
-const port = 3000;
+var app = express();
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
+app.listen(3000, () => {
+  console.log("Server running on port 3000");
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+
+app.get("/", (req, res) => {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  const _retfile = path.join(__dirname, 'main.html');
+
+  res.sendFile(_retfile);
+});
+
+app.get("/showfile", (req, res, next) => {
+  // show the page
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  const _retfile = path.join(__dirname, 'main.html');
+
+  res.sendFile(_retfile);
 });

@@ -28,9 +28,6 @@
   "homepage": "https://github.com/juliaTrummer/GenerativeDesign#readme",
   "dependencies": {
     "express": "^4.19.2",
-    "html2canvas": "https://github.com/Yogoort/html2canvas/tarball/master",
-    "node-p5": "^1.0.4",
-    "p5": "^1.9.2",
-    "start": "^5.1.0"
+    "p5": "^1.9.2"
   }
 }

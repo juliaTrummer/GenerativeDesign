@@ -16,12 +16,3 @@ app.get("/", (req, res) => {
 
   res.sendFile(_retfile);
 });
-
-app.get("/showfile", (req, res, next) => {
-  // show the page
-  const __filename = fileURLToPath(import.meta.url);
-  const __dirname = path.dirname(__filename);
-  const _retfile = path.join(__dirname, 'main.html');
-
-  res.sendFile(_retfile);
-});

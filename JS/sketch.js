@@ -1,23 +1,21 @@
-class Sketch {
-    constructor() {
+const sketch = (p) => {
+    let x = 50;
+    let y = 50;
 
-    }
-}
-
-export default Sketch;
-
-import {createSketch} from "node-p5";
-
-var canvas; 
-function sketch(p) {
     p.setup = () => {
-        canvas = p.createCanvas(200, 200);
-        canvas.position(0,0);
-    }
-    p.draw = () => {
-        p.background(50);
-        p.text('hello world!', 50, 100);
-    }
-}
+        p.createCanvas(400, 400);
+        p.background(220);
+    };
 
-let p5Instance = createSketch(sketch);
+    p.draw = () => {
+        p.fill(255, 0, 0);
+        p.ellipse(x, y, 50, 50);
+
+        x += 1;
+        if (x > p.width) {
+            x = 0;
+        }
+    };
+};
+
+new p5(sketch);

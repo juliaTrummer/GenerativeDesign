@@ -16,3 +16,10 @@ app.get("/", (req, res) => {
 
   res.sendFile(_retfile);
 });
+
+app.get("/JS/sketch.js", (req, res) => {
+  const __filename = fileURLToPath(import.meta.url);
+  const __dirname = path.dirname(__filename);
+  const _retfile = path.join(__dirname, 'JS', 'sketch.js');
+  res.sendFile(_retfile);
+});
